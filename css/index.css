@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --bg-color: #F5E9E2;
+  --primary-color: #613DC1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+#themeSwitcherBtn {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+#themeSwitcherBtn:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  filter: brightness(0.9);
+}
+
+.formSection {
+  display: flex ;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 450px;
+  height: 500px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px #353535;
+  background-color: var(--bg-color);
+}
+
+#playerForm {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 20px;
+  padding: 27px;
+}
+
+.playersName {
+  display: flex;
+  flex-direction: column;
+}
+
+.playerNameInput {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  padding-left: 5px;
+  background-color: #f0efef;
+}
+
+#startGameBtn {
+  height: 45px;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+#startGameBtn:hover {
+  cursor: pointer;
+  filter: brightness(0.8);
+}
