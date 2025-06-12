@@ -16,15 +16,41 @@
       
       <form id="playerForm">
         <div class="playersName">
-          <label for="player01Name">Name of the first player:</label>
-          <input type="text" id="player01Name" class="playerNameInput">
+          <label for="namePlayerOne">Name of the first player:</label>
+          <input type="text" id="namePlayerOne" class="playerNameInput">
         </div>
         <div class="playersName">
-          <label for="player02Name">Name of the second player:</label>
-          <input type="text" id="player02Name" class="playerNameInput">
+          <label for="namePlayerTwo">Name of the second player:</label>
+          <input type="text" id="namePlayerTwo" class="playerNameInput">
         </div>
         <button id="startGameBtn">Start</button>
       </form>
+    </section>
+
+    <section id="gameSection">
+      <div>
+        <h1 id="boardTitle"></h1>
+        <p id="playerTurn"></p>
+        <p id="alert"></p>
+      </div>
+
+      <section id="board">
+        <div class="boardRow">
+          <div class="boardCedule oneXOne"></div>
+          <div class="boardCedule oneXTwo"></div>
+          <div class="boardCedule oneXThree"></div>
+        </div>
+        <div class="boardRow">
+          <div class="boardCedule twoXOne"></div>
+          <div class="boardCedule twoXTwo"></div>
+          <div class="boardCedule twoXThree"></div>
+        </div>
+        <div class="boardRow">
+          <div class="boardCedule threeXOne"></div>
+          <div class="boardCedule threeXTwo"></div>
+          <div class="boardCedule threeXThree"></div>
+        </div>
+      </section>
     </section>
   </main>
 </body>
