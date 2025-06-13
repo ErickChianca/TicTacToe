@@ -1,6 +1,3 @@
-// - Em caso de empate, uma mensagem de empate deve ser mostrada na tela;
-// - Deve ser possível reiniciar o jogo para jogar novamente.
-
 const main = document.querySelector('main')
 const root = document.querySelector(':root')
 const themeSwitcher = document.getElementById('themeSwitcherBtn')
@@ -14,6 +11,8 @@ const board = document.querySelectorAll('.boardCedule')
 const boardTitle = document.getElementById('boardTitle')
 const alertMessage = document.getElementById('alert')
 const filledCells = []
+const restartGameBtn = document.getElementById('restartGame')
+const playAgain = document.getElementById('playAgain')
 
 themeSwitcher.addEventListener('click', () => {
   if (main.dataset.theme === 'light') {
@@ -36,6 +35,7 @@ document.getElementById('startGameBtn').addEventListener('click', (ev) => {
   
   playerTurn.innerText = 'Player Turn: ' + namePlayerOne.value + ' (X)'
   boardTitle.innerText = 'TicTacToe Board'
+  restartGameBtn.classList.toggle('disabled')
   
   board.forEach((cell) => {cell.classList.toggle('active')})
 })
@@ -44,9 +44,8 @@ board.forEach((cell) => {
   cell.addEventListener('click', (ev) => {
     const clickedCell = ev.currentTarget
 
-
     if (clickedCell.innerText !== '') {
-      alertMessage.innerText = "Local já preenchido"
+      alertMessage.innerText = "Filled square"
       return
     }
     
@@ -57,15 +56,22 @@ board.forEach((cell) => {
       alertMessage.innerText = ""
       verifyDraw()
       verifyWinner()
+      didGameFinish()
+      return
+    } 
+  
+    if (playerTurn.innerText === 'Player Turn: ' + namePlayerTwo.value + ' (O)') {
+      clickedCell.innerText = 'O'
+      playerTurn.innerText = 'Player Turn: ' + namePlayerOne.value + ' (X)'
+      filledCells.push(clickedCell.innerText)
+      alertMessage.innerText = ""
+      verifyDraw()
+      verifyWinner()
+      didGameFinish()
       return
     }
 
-    clickedCell.innerText = 'O'
-    playerTurn.innerText = 'Player Turn: ' + namePlayerOne.value + ' (X)'
-    filledCells.push(clickedCell.innerText)
-    alertMessage.innerText = ""
-    verifyDraw()
-    verifyWinner()
+    clickedCell.innerText = ''
   })
 })
 
@@ -101,3 +107,28 @@ function verifyDraw() {
     alertMessage.innerText = 'Draw'
   }
 }
+
+function didGameFinish(ev) {
+  if (alertMessage.innerText === 'PLAYER (X) WON: ' + namePlayerOne.value || alertMessage.innerText === 'PLAYER (O) WON: ' + namePlayerTwo.value || alertMessage.innerText === 'Draw') {
+    restartGameBtn.classList.toggle('disabled')
+    playAgain.classList.toggle('disabled')
+    playerTurn.innerText = "The game has finished\nPress 'Play Again' to start a new round"
+  }
+}
+
+function resetBoard() {
+  board.forEach((cell) => {
+    cell.innerText = ''
+    cell.classList.remove('win')
+    playerTurn.innerText = 'Player Turn: ' + namePlayerOne.value + ' (X)'
+    alertMessage.innerText = ''
+    restartGameBtn.classList.toggle('disabled')
+    playAgain.classList.toggle('disabled')
+    for (let i = 0; i <= filledCells.length; i++) {
+      filledCells.pop()
+    }
+  })
+}
+
+restartGameBtn.addEventListener('click', resetBoard)
+playAgain.addEventListener('click', resetBoard)

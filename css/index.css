@@ -101,7 +101,9 @@ header {
 #gameSection {
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
+  padding: 27px;
 }
 
 #board {
@@ -121,6 +123,10 @@ header {
   width: 200px;
   border: 5px solid var(--primary-color);
   cursor: pointer;
+}
+
+.disabled {
+  display: none;
 }
 
 .oneXOne {
@@ -161,4 +167,18 @@ header {
 
 .win {
   background-color: var(--winner-color);
+}
+
+.btn {
+  width: 300px;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  border-radius: 6px;
+  padding: 8px 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-10px);
 }
