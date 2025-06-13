@@ -108,7 +108,7 @@ function verifyDraw() {
   }
 }
 
-function didGameFinish(ev) {
+function didGameFinish() {
   if (alertMessage.innerText === 'PLAYER (X) WON: ' + namePlayerOne.value || alertMessage.innerText === 'PLAYER (O) WON: ' + namePlayerTwo.value || alertMessage.innerText === 'Draw') {
     restartGameBtn.classList.toggle('disabled')
     playAgain.classList.toggle('disabled')
