@@ -8,20 +8,28 @@
 }
 
 :root {
-  --bg-color: #1C0804;
-  --primary-color: #F5E9E2; 
-  --input-bg-color: #F5E9E2;
+  --bg-color: #F5E9E2;
+  --primary-color: #1C0804; 
+  --input-bg-color: #B1A19B;
   --input-color: #1C0804;
+  --winner-color: green;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: var(--bg-color);
   color: var(--primary-color);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 40px 80px 40px 80px;
 }
 
 #themeSwitcherBtn {
@@ -29,7 +37,6 @@ main {
   color: var(--primary-color);
   border-radius: 6px;
   padding: 8px 10px;
-  margin-bottom: 20px;
   transition: 0.3s;
 }
 
@@ -150,4 +157,8 @@ main {
 .threeXThree {
   border-bottom: 0px;
   border-right: 0px;
+}
+
+.win {
+  background-color: var(--winner-color);
 }
